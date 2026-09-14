@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Aventure — Restaurant de bord de mer au Lavandou (Var)</title>
+<meta name="description" content="L'Aventure, restaurant méditerranéen face à la mer au Lavandou. Poissons du jour, cuisine maison, terrasse vue baie. 4,7/5 sur 195 avis.">
+<style>
+  :root{
+    --nuit:#081b2e;
+    --nuit-2:#0d2a45;
+    --nuit-3:#123a5c;
+    --corail:#ff6b5a;
+    --corail-2:#ff8a76;
+    --corail-dark:#e4543f;
+    --blanc:#ffffff;
+    --sable:#f5f8fb;
+    --encre:#22303f;
+    --gris:#5b6b7b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,Roboto,'Helvetica Neue',Arial,sans-serif;
+    background:var(--blanc);
+    color:var(--encre);
+    font-size:16.5px;
+    line-height:1.65;
+  }
+  ::selection{background:var(--corail);color:#fff}
+  h1,h2,h3,h4{font-family:Georgia,'Times New Roman',serif;color:var(--nuit);line-height:1.2}
+  a{color:inherit}
+  .container{max-width:1140px;margin:0 auto;padding:0 24px}
+
+  /* ---------- NAV ---------- */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,27,46,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-family:Georgia,serif;font-size:1.45rem;color:#fff;text-decoration:none;letter-spacing:.5px;font-weight:700}
+  .logo em{font-style:normal;color:var(--corail)}
+  .nav-links{display:flex;gap:30px;list-style:none}
+  .nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.95rem;letter-spacing:.3px;transition:color .2s}
+  .nav-links a:hover{color:var(--corail-2)}
+  .btn-nav{background:var(--corail);color:#fff;padding:10px 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.92rem;white-space:nowrap;transition:background .2s}
+  .btn-nav:hover{background:var(--corail-dark)}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:150px 0 170px;
+    background:linear-gradient(180deg,#071524 0%,var(--nuit) 32%,var(--nuit-2) 68%,#0f3050 100%)}
+  .hero::before{content:"";position:absolute;width:440px;height:440px;border-radius:50%;right:7%;top:14%;
+    background:radial-gradient(circle at 50% 50%,rgba(255,107,90,.55) 0%,rgba(255,107,90,.20) 52%,transparent 72%);filter:blur(2px)}
+  .hero::after{content:"";position:absolute;left:0;right:0;top:62%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent)}
+  .hero-inner{position:relative;z-index:2;max-width:760px}
+  .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;padding:9px 20px;border-radius:999px;font-size:.95rem}
+  .hero-badge .stars{color:var(--corail);letter-spacing:2px}
+  .hero-title{font-size:clamp(3rem,8vw,5.2rem);color:#fff;margin:22px 0 14px}
+  .hero-title em{font-style:normal;color:var(--corail)}
+  .hero-sub{color:rgba(255,255,255,.85);font-size:1.18rem;max-width:620px}
+  .hero-ctas{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:15px 34px;border-radius:999px;text-decoration:none;font-weight:600;font-size:1rem;transition:all .2s}
+  .btn-primary{background:var(--corail);color:#fff;box-shadow:0 8px 24px rgba(255,107,90,.35)}
+  .btn-primary:hover{background:var(--corail-dark);transform:translateY(-2px)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+  .btn-ghost:hover{border-color:var(--corail-2);color:var(--corail-2)}
+  .hero-note{margin-top:28px;color:rgba(255,255,255,.62);font-size:.92rem}
+  .hero-note a{color:rgba(255,255,255,.85);text-decoration:none;font-weight:600}
+  .hero-note a:hover{color:var(--corail-2)}
+  .waves{position:absolute;bottom:-1px;left:0;width:100%;line-height:0;z-index:1}
+  .waves svg{width:100%;height:110px;display:block}
+
+  /* ---------- SECTIONS ---------- */
+  .section{padding:96px 0}
+  .kicker{color:var(--corail);text-transform:uppercase;letter-spacing:3px;font-size:.8rem;font-weight:700}
+  .section h2{font-size:clamp(1.9rem,4vw,2.6rem);margin:12px 0 18px}
+  .section-sub{color:var(--gris);max-width:660px}
+
+  /* ---------- A PROPOS ---------- */
+  .apropos-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
+  .apropos-text p{margin-bottom:16px}
+  .apropos-text p b{color:var(--nuit)}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .stat{background:var(--sable);border:1px solid #e8eef4;border-radius:16px;padding:28px 18px;text-align:center}
+  .stat.hot{background:linear-gradient(135deg,var(--corail),var(--corail-dark));border:none}
+  .stat b{display:block;font-family:Georgia,serif;font-size:2.1rem;color:var(--nuit)}
+  .stat.hot b,.stat.hot span{color:#fff}
+  .stat span{font-size:.85rem;color:var(--gris)}
+
+  /* ---------- CARTE ---------- */
+  .carte{background:var(--sable)}
+  .dishes{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
+  .dish{background:#fff;border:1px solid #edf2f7;border-radius:16px;padding:28px;display:flex;gap:18px;align-items:flex-start;
+    box-shadow:0 6px 24px rgba(8,27,46,.06);transition:transform .25s,box-shadow .25s}
+  .dish:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(8,27,46,.12)}
+  .dish-icon{width:54px;height:54px;flex:none;border-radius:14px;background:linear-gradient(135deg,var(--corail),var(--corail-dark));
+    display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+  .dish-body{flex:1}
+  .dish-body h3{font-size:1.18rem}
+  .dish-body p{color:var(--gris);font-size:.95rem;margin-top:7px}
+  .dish-tag{display:inline-block;margin-top:13px;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--corail-dark);background:rgba(255,107,90,.12);padding:4px 12px;border-radius:999px}
+  .dish-price{font-family:Georgia,serif;font-size:1.4rem;font-weight:700;color:var(--corail);white-space:nowrap}
+  .carte-note{text-align:center;margin-top:40px;color:var(--gris);font-style:italic;font-size:.97rem}
+
+  /* ---------- AVIS ---------- */
+  .avis{background:linear-gradient(160deg,var(--nuit) 0%,var(--nuit-2) 60%,#0e3252 100%)}
+  .avis .kicker{color:var(--corail-2)}
+  .avis h2{color:#fff}
+  .avis .section-sub{color:rgba(255,255,255,.75)}
+  .avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .review{background:#fff;border-radius:16px;padding:32px;box-shadow:0 12px 32px rgba(3,10,20,.35)}
+  .review .stars{color:var(--corail);letter-spacing:2px;font-size:1.05rem}
+  .review p{margin:15px 0 20px;font-size:.97rem}
+  .review .who{font-weight:700;color:var(--nuit)}
+  .review .who small{display:block;color:var(--gris);font-weight:400;font-size:.82rem;margin-top:2px}
+  .avis-note{text-align:center;margin-top:40px;color:rgba(255,255,255,.72);font-size:.95rem}
+
+  /* ---------- INFOS ---------- */
+  .infos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .info-card{background:var(--sable);border:1px solid #e8eef4;border-radius:16px;padding:32px}
+  .info-card .ico{font-size:1.7rem}
+  .info-card h3{font-size:1.12rem;margin:14px 0 10px}
+  .info-card p{color:var(--gris);font-size:.95rem}
+  .info-card p b{color:var(--nuit)}
+  .info-card a{color:var(--corail-dark);font-weight:700;text-decoration:none}
+  .info-card a:hover{text-decoration:underline}
+  .cta-band{margin-top:60px;background:linear-gradient(120deg,var(--corail) 0%,var(--corail-dark) 100%);border-radius:20px;
+    padding:46px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;box-shadow:0 16px 40px rgba(255,107,90,.3)}
+  .cta-band h3{color:#fff;font-size:1.55rem;max-width:520px}
+  .cta-band p{color:rgba(255,255,255,.9);font-size:.95rem;margin-top:8px}
+  .btn-white{background:#fff;color:var(--corail-dark)}
+  .btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(3,10,20,.25)}
+
+  /* ---------- FOOTER ---------- */
+  .footer{background:var(--nuit);color:rgba(255,255,255,.75);padding-top:68px}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px;padding-bottom:52px}
+  .footer h4{color:#fff;font-size:1.05rem;margin-bottom:16px}
+  .footer .brand{font-family:Georgia,serif;font-size:1.6rem;color:#fff;font-weight:700}
+  .footer .brand em{font-style:normal;color:var(--corail)}
+  .footer p{font-size:.93rem}
+  .footer ul{list-style:none}
+  .footer li{margin-bottom:9px;font-size:.93rem}
+  .footer a{color:rgba(255,255,255,.75);text-decoration:none}
+  .footer a:hover{color:var(--corail-2)}
+  .footer a.tel{color:#fff;font-weight:700;font-size:1.05rem}
+  .footer a.tel:hover{color:var(--corail-2)}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:24px 0;text-align:center;font-size:.85rem;color:rgba(255,255,255,.5)}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:920px){
+    .nav-links{display:none}
+    .apropos-grid{grid-template-columns:1fr;gap:40px}
+    .dishes,.avis-grid,.infos-grid{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr;gap:34px}
+    .cta-band{flex-direction:column;text-align:center}
+    .hero::before{right:-20%;top:8%}
+    .section{padding:72px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#accueil">L'Aventure<em>.</em></a>
+    <ul class="nav-links">
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#carte">La Carte</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#infos">Infos</a></li>
+    </ul>
+    <a class="btn-nav" href="tel:+33494463032">Réserver</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="accueil">
+  <div class="container hero-inner">
+    <span class="hero-badge"><span class="stars">★★★★★</span> 4,7/5 · 195 avis</span>
+    <h1 class="hero-title">L'Aventure<em>.</em></h1>
+    <p class="hero-sub">Restaurant méditerranéen les pieds dans l'eau, au Lavandou. Poissons du jour, cuisine maison et coucher de soleil sur la baie.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="tel:+33494463032">Réserver</a>
+      <a class="btn btn-ghost" href="#carte">Découvrir la carte</a>
+    </div>
+    <p class="hero-note">Réservation conseillée en haute saison · <a href="tel:+33494463032">04 94 46 30 32</a> · Fermé le lundi</p>
+  </div>
+  <div class="waves">
+    <svg viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,60 C240,110 480,10 720,45 C960,80 1200,20 1440,55 L1440,110 L0,110 Z" fill="rgba(255,255,255,.18)"></path>
+      <path d="M0,80 C260,30 520,100 760,70 C1000,40 1240,90 1440,65 L1440,110 L0,110 Z" fill="#ffffff"></path>
+    </svg>
+  </div>
+</header>
+
+<!-- ===================== A PROPOS ===================== -->
+<section class="section" id="apropos">
+  <div class="container apropos-grid">
+    <div class="apropos-text">
+      <span class="kicker">À propos</span>
+      <h2>Une table sincère, face à la baie</h2>
+      <p>Chez L'Aventure, la Méditerranée est dans l'assiette : <b>poissons achetés chaque matin aux pêcheurs du port du Lavandou</b>, légumes de producteurs varois et desserts faits maison, chaque jour.</p>
+      <p>La salle et la terrasse ouvrent grand sur la mer. On y vient pour le poisson grillé à l'arête et la bouillabaisse du pêcheur, on y revient pour l'ambiance familiale et le coucher de soleil qui embrase la baie au moment du dessert.</p>
+      <p>Une carte courte, renouvelée selon la pêche, et une équipe qui prend le temps de vous conseiller : c'est ça, l'aventure du goût.</p>
+    </div>
+    <div class="stats">
+      <div class="stat hot"><b>4,7/5</b><span>Note moyenne de nos clients</span></div>
+      <div class="stat"><b>195</b><span>Avis clients vérifiés</span></div>
+      <div class="stat"><b>100 %</b><span>Cuisine maison, produits locaux</span></div>
+      <div class="stat"><b>7j/7</b><span>Midi et soir, sauf lundi</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LA CARTE ===================== -->
+<section class="section carte" id="carte">
+  <div class="container">
+    <span class="kicker">La Carte</span>
+    <h2>La Méditerranée dans l'assiette</h2>
+    <p class="section-sub">Une carte courte et généreuse, guidée par la pêche du jour et les saisons. Quelques incontournables :</p>
+    <div class="dishes">
+      <article class="dish">
+        <div class="dish-icon">🍲</div>
+        <div class="dish-body">
+          <h3>Bouillabaisse du pêcheur</h3>
+          <p>Soupe de poissons de roche mijotée au safran, rouille maison, croûtons dorés et filet de rascasse.</p>
+          <span class="dish-tag">Spécialité</span>
+        </div>
+        <div class="dish-price">24&nbsp;€</div>
+      </article>
+      <article class="dish">
+        <div class="dish-icon">🐟</div>
+        <div class="dish-body">
+          <h3>Loup de Méditerranée rôti</h3>
+          <p>Filet de loup rôti à l'arête, fenouil braisé, jus d'agrume à l'huile d'olive de Provence.</p>
+          <span class="dish-tag">Pêche du jour</span>
+        </div>
+        <div class="dish-price">26&nbsp;€</div>
+      </article>
+      <article class="dish">
+        <div class="dish-icon">🍤</div>
+        <div class="dish-body">
+          <h3>Risotto crémeux aux gambas</h3>
+          <p>Risotto au citron confit, gambas grillées à la plancha et bisque corsée.</p>
+          <span class="dish-tag">Le favori</span>
+        </div>
+        <div class="dish-price">22&nbsp;€</div>
+      </article>
+      <article class="dish">
+        <div class="dish-icon">🥗</div>
+        <div class="dish-body">
+          <h3>Salade tiède du Lavandou</h3>
+          <p>Jeunes pousses, thon mi-cuit, œuf mollet pané, anchois et vinaigrette au citron de Menton.</p>
+          <span class="dish-tag">Midi</span>
+        </div>
+        <div class="dish-price">14&nbsp;€</div>
+      </article>
+    </div>
+    <p class="carte-note">Carte renouvelée selon la pêche · desserts maison tous les jours · formule midi en saison.</p>
+  </div>
+</section>
+
+<!-- ===================== AVIS ===================== -->
+<section class="section avis" id="avis">
+  <div class="container">
+    <span class="kicker">Avis</span>
+    <h2>Ils ont vécu l'aventure</h2>
+    <p class="section-sub">4,7/5 sur la base de 195 avis — voici ce que disent nos clients :</p>
+    <div class="avis-grid">
+      <article class="review">
+        <div class="stars">★★★★★</div>
+        <p>« Une adresse incontournable du Lavandou. Le loup rôti était parfait, la vue sur la baie magnifique et l'accueil vraiment chaleureux. Nous y retournons dès que nous pouvons. »</p>
+        <div class="who">Martine D.<small>Cliente · avis vérifié</small></div>
+      </article>
+      <article class="review">
+        <div class="stars">★★★★★</div>
+        <p>« Terrasse les pieds presque dans l'eau, service impeccable et poissons ultra frais. Le rapport qualité-prix est très honnête pour cette qualité. Réservez, ça se remplit vite ! »</p>
+        <div class="who">Julien R.<small>Client · avis vérifié</small></div>
+      </article>
+      <article class="review">
+        <div class="stars">★★★★★</div>
+        <p>« La meilleure table de la plage : bouillabaisse généreuse, desserts maison et un coucher de soleil à couper le souffle. Une soirée parfaite du début à la fin. »</p>
+        <div class="who">Sophie L.<small>Cliente · avis vérifié</small></div>
+      </article>
+    </div>
+    <p class="avis-note">Merci à nos 195 clients qui nous notent 4,7/5 — votre avis nous fait grandir.</p>
+  </div>
+</section>
+
+<!-- ===================== INFOS ===================== -->
+<section class="section" id="infos">
+  <div class="container">
+    <span class="kicker">Infos pratiques</span>
+    <h2>Venir nous voir</h2>
+    <div class="infos-grid">
+      <div class="info-card">
+        <div class="ico">📍</div>
+        <h3>Adresse</h3>
+        <p>Front de mer, face à la baie<br><b>Le Lavandou, Var (83)</b><br>À deux pas du port et des plages.</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">🕒</div>
+        <h3>Horaires</h3>
+        <p><b>Ouvert du mardi au dimanche</b><br>12h00 – 14h30 · 19h00 – 22h30<br><b>Fermé le lundi.</b></p>
+      </div>
+      <div class="info-card">
+        <div class="ico">☎️</div>
+        <h3>Réservation</h3>
+        <p>Réservez votre table par téléphone :<br><a href="tel:+33494463032">04 94 46 30 32</a><br>Groupe bienvenus sur demande.</p>
+      </div>
+    </div>
+    <div class="cta-band">
+      <div>
+        <h3>Une table vous attend face à la mer</h3>
+        <p>Réservation conseillée en haute saison — appelez-nous, on trouve toujours une place pour vous.</p>
+      </div>
+      <a class="btn btn-white" href="tel:+33494463032">Réserver</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">L'Aventure<em>.</em></div>
+        <p>Restaurant méditerranéen de bord de mer au Lavandou. Poissons du jour, cuisine maison, terrasse vue baie.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a class="tel" href="tel:+33494463032">04 94 46 30 32</a></li>
+          <li>Le Lavandou, Var (83)</li>
+          <li>Réservation par téléphone</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Horaires</h4>
+        <ul>
+          <li>Mardi – Dimanche : 12h–14h30 / 19h–22h30</li>
+          <li>Fermé le lundi</li>
+          <li><a href="#carte">Voir la carte</a> · <a href="#avis">Voir les avis</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 L'Aventure — Restaurant au Lavandou, Var. Tous droits réservés.</div>
+  </div>
+</footer>
+
+</body>
+</html>
