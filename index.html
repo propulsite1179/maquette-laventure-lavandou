@@ -45,7 +45,7 @@
 
   /* ---------- HERO ---------- */
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:150px 0 170px;
-    background:linear-gradient(180deg,#071524 0%,var(--nuit) 32%,var(--nuit-2) 68%,#0f3050 100%)}
+    background:linear-gradient(180deg,rgba(7,21,36,.78) 0%,rgba(10,26,44,.62) 40%,rgba(15,48,80,.66) 100%),url("https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1800&q=80") center 65%/cover no-repeat,linear-gradient(180deg,#071524 0%,var(--nuit) 32%,var(--nuit-2) 68%,#0f3050 100%)}
   .hero::before{content:"";position:absolute;width:440px;height:440px;border-radius:50%;right:7%;top:14%;
     background:radial-gradient(circle at 50% 50%,rgba(255,107,90,.55) 0%,rgba(255,107,90,.20) 52%,transparent 72%);filter:blur(2px)}
   .hero::after{content:"";position:absolute;left:0;right:0;top:62%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent)}
@@ -154,6 +154,13 @@
     .hero::before{right:-20%;top:8%}
     .section{padding:72px 0}
   }
+
+/* --- photos maquette (QA 28/09) --- */
+.ph-img{display:block;width:100%;height:100%;object-fit:cover}
+.ph-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:34px auto 0;max-width:1080px}
+.ph-card{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 10px 30px rgba(10,20,40,.16)}
+.ph-cap{position:absolute;left:0;right:0;bottom:0;padding:10px 14px 12px;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.72) 60%);color:#fff;font-size:.92rem;letter-spacing:.4px}
+
 </style>
 </head>
 <body>
@@ -168,7 +175,7 @@
       <li><a href="#avis">Avis</a></li>
       <li><a href="#infos">Infos</a></li>
     </ul>
-    <a class="btn-nav" href="tel:+33494463032">Réserver</a>
+    <a class="btn-nav" href="tel:tel:+33494463032">Réserver</a>
   </div>
 </nav>
 
@@ -179,10 +186,10 @@
     <h1 class="hero-title">L'Aventure<em>.</em></h1>
     <p class="hero-sub">Restaurant méditerranéen les pieds dans l'eau, au Lavandou. Poissons du jour, cuisine maison et coucher de soleil sur la baie.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="tel:+33494463032">Réserver</a>
+      <a class="btn btn-primary" href="tel:tel:+33494463032">Réserver</a>
       <a class="btn btn-ghost" href="#carte">Découvrir la carte</a>
     </div>
-    <p class="hero-note">Réservation conseillée en haute saison · <a href="tel:+33494463032">04 94 46 30 32</a> · Fermé le lundi</p>
+    <p class="hero-note">Réservation conseillée en haute saison · <a href="tel:tel:+33494463032">04 94 46 30 32</a> · Fermé le lundi</p>
   </div>
   <div class="waves">
     <svg viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
@@ -219,7 +226,7 @@
     <p class="section-sub">Une carte courte et généreuse, guidée par la pêche du jour et les saisons. Quelques incontournables :</p>
     <div class="dishes">
       <article class="dish">
-        <div class="dish-icon">🍲</div>
+        <div class="dish-icon" style="padding:0;overflow:hidden;border-radius:14px"><img class="ph-img" src="https://images.unsplash.com/photo-1601056639638-c53c50e13ead?auto=format&fit=crop&w=300&q=75" alt="" loading="lazy"></div>
         <div class="dish-body">
           <h3>Bouillabaisse du pêcheur</h3>
           <p>Soupe de poissons de roche mijotée au safran, rouille maison, croûtons dorés et filet de rascasse.</p>
@@ -228,7 +235,7 @@
         <div class="dish-price">24&nbsp;€</div>
       </article>
       <article class="dish">
-        <div class="dish-icon">🐟</div>
+        <div class="dish-icon" style="padding:0;overflow:hidden;border-radius:14px"><img class="ph-img" src="https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?auto=format&fit=crop&w=300&q=75" alt="" loading="lazy"></div>
         <div class="dish-body">
           <h3>Loup de Méditerranée rôti</h3>
           <p>Filet de loup rôti à l'arête, fenouil braisé, jus d'agrume à l'huile d'olive de Provence.</p>
@@ -237,7 +244,7 @@
         <div class="dish-price">26&nbsp;€</div>
       </article>
       <article class="dish">
-        <div class="dish-icon">🍤</div>
+        <div class="dish-icon" style="padding:0;overflow:hidden;border-radius:14px"><img class="ph-img" src="https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?auto=format&fit=crop&w=300&q=75" alt="" loading="lazy"></div>
         <div class="dish-body">
           <h3>Risotto crémeux aux gambas</h3>
           <p>Risotto au citron confit, gambas grillées à la plancha et bisque corsée.</p>
@@ -246,7 +253,7 @@
         <div class="dish-price">22&nbsp;€</div>
       </article>
       <article class="dish">
-        <div class="dish-icon">🥗</div>
+        <div class="dish-icon" style="padding:0;overflow:hidden;border-radius:14px"><img class="ph-img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=300&q=75" alt="" loading="lazy"></div>
         <div class="dish-body">
           <h3>Salade tiède du Lavandou</h3>
           <p>Jeunes pousses, thon mi-cuit, œuf mollet pané, anchois et vinaigrette au citron de Menton.</p>
@@ -265,7 +272,7 @@
     <span class="kicker">Avis</span>
     <h2>Ils ont vécu l'aventure</h2>
     <p class="section-sub">4,7/5 sur la base de 195 avis — voici ce que disent nos clients :</p>
-    <div class="avis-grid">
+    <div <div class="ph-strip" style="max-width:1080px"><figure class="ph-card"><img class="ph-img" src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1100&q=80" alt="Terrasse face à la mer" loading="lazy"><span class="ph-cap">L'été, sur la terrasse</span></figure><figure class="ph-card"><img class="ph-img" src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1100&q=80" alt="Salle du restaurant" loading="lazy"><span class="ph-cap">La salle</span></figure></div>class="avis-grid">
       <article class="review">
         <div class="stars">★★★★★</div>
         <p>« Une adresse incontournable du Lavandou. Le loup rôti était parfait, la vue sur la baie magnifique et l'accueil vraiment chaleureux. Nous y retournons dès que nous pouvons. »</p>
@@ -305,7 +312,7 @@
       <div class="info-card">
         <div class="ico">☎️</div>
         <h3>Réservation</h3>
-        <p>Réservez votre table par téléphone :<br><a href="tel:+33494463032">04 94 46 30 32</a><br>Groupe bienvenus sur demande.</p>
+        <p>Réservez votre table par téléphone :<br><a href="tel:tel:+33494463032">04 94 46 30 32</a><br>Groupe bienvenus sur demande.</p>
       </div>
     </div>
     <div class="cta-band">
@@ -313,7 +320,7 @@
         <h3>Une table vous attend face à la mer</h3>
         <p>Réservation conseillée en haute saison — appelez-nous, on trouve toujours une place pour vous.</p>
       </div>
-      <a class="btn btn-white" href="tel:+33494463032">Réserver</a>
+      <a class="btn btn-white" href="tel:tel:+33494463032">Réserver</a>
     </div>
   </div>
 </section>
@@ -329,7 +336,7 @@
       <div>
         <h4>Contact</h4>
         <ul>
-          <li><a class="tel" href="tel:+33494463032">04 94 46 30 32</a></li>
+          <li><a class="tel" href="tel:tel:+33494463032">04 94 46 30 32</a></li>
           <li>Le Lavandou, Var (83)</li>
           <li>Réservation par téléphone</li>
         </ul>
